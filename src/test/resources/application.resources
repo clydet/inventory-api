@@ -1,0 +1,24 @@
+# Disable Quarkus Dev Services for databases
+quarkus.datasource.devservices.enabled=false
+
+# Test-specific datasource configuration
+# quarkus.datasource.db-kind=postgresql
+# quarkus.datasource.username=test
+# quarkus.datasource.password=test
+# quarkus.datasource.jdbc.url=jdbc:tc:postgresql:13-alpine:///test
+quarkus.datasource.db-kind=h2
+quarkus.datasource.username=meep
+quarkus.datasource.jdbc.url=jdbc:h2:tcp://localhost/mem:default
+
+# no hibernate generation
+quarkus.hibernate-orm.database.generation=none
+
+# Liquibase configuration for tests
+quarkus.liquibase.migrate-at-start=true
+# quarkus.liquibase.change-log=classpath:db/changelog/chan.xml
+quarkus.liquibase.change-log=db/changeLog.xml
+# quarkus.liquibase.default-schema-name=PUBLIC
+
+quarkus.log.category."liquibase".level=DEBUG
+
+quarkus.profile=test
